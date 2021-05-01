@@ -40,10 +40,29 @@ $ # o en su defecto con puerto predeterminado.
 
 ## Módulos de VenomPOS
    ### Productos
+   ---
    - #### Listado de Productos
    - #### Crear Producto
    - #### Modificar Producto
    - #### Eliminar Producto
+
+   ### Empleados
+   ---
+   - #### Listado de Empleados
+   - #### Crear Empleado
+   - #### Modificar Empleado
+   - #### Eliminar Empleado
+
+   ### Clientes
+   ---
+   - #### Listado de Cliente
+   - #### Crear Cliente
+   - #### Modificar Cliente
+   - #### Eliminar Cliente
+
+   ### Ventas
+   ---
+   - #### Se podrán agregar artículos a la venta actual introduciendo el código del artículo. (Si se desea añadir x cantidad del mismo artículo se podrá utilizar la nomenclatura de "***x(numero)****código_del_producto)
 
 ---
 [Argon Dashboard - Django Template](https://www.creative-tim.com/product/argon-dashboard-django) - Provided by [Creative Tim](https://www.creative-tim.com/) and [AppSeed](https://appseed.us)
