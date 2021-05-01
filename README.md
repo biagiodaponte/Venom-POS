@@ -77,8 +77,8 @@ $ # o en su defecto con puerto predeterminado.
 
    ### Reportes
    ---
-   - *Reporte Stock Crítico:* Exporta a una planilla Excel, una tabla con todos los productos con su inventario actual bajo su mínimo esperado en tienda.
-   - *Reporte Total de Ventas:* Exporta a una planilla Excel, una tabla con el reporte total de las ventas, que incluye por cada ticket emitido, su número, fecha y monto total. (como desarrollo posterior al Máster, se busca implementar filtrar estos resultados mediante un intervalo de fechas.)
+   - **Reporte Stock Crítico:** Exporta a una planilla Excel, una tabla con todos los productos con su inventario actual bajo su mínimo esperado en tienda.
+   - **Reporte Total de Ventas:** Exporta a una planilla Excel, una tabla con el reporte total de las ventas, que incluye por cada ticket emitido, su número, fecha y monto total. (como desarrollo posterior al Máster, se busca implementar filtrar estos resultados mediante un intervalo de fechas.)
 <br />
 
 ## Límites del Proyecto
