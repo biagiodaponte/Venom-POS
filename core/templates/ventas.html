@@ -1,0 +1,191 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Ventas {% endblock title %}
+
+{% block content %}
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-6 pt-5 pt-md-8">
+    </div>
+
+    <div class="container-fluid mt--7">
+
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-6">
+                  <h3 class="mb-0"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Venta #{{ticket.numero}}</h3>
+                </div>
+                <div class="col-6 align-items-end text-right">
+                  <button type="button" class="btn btn-outline-primary" onclick="location.href='/venta_pdf/{{last_ticket}}'"><i class="fa fa-download"></i> Descargar Última Venta</button>
+                </div>
+              </div>
+              <br>
+              <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="input-group mb-2 col">
+                    <input type="text" class="form-control" id="codeInput" name="code" placeholder="(F2) Código de Barras" autocomplete="off">
+                    <button class="btn btn-info" type="submit" id="button-addon2">Aceptar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive border-right border-left border-bottom">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio Venta</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key, value in ticket.detalle.items %}
+                <tr>
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <div class="media-body">
+                        <span class="mb-0 text-sm">{{key}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td>
+                    <span class="mb-0 text-sm">{{value.nombre}}</span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      {{value.cantidad}}
+                    </span>
+                    <button type="button" class="btn-sm btn-success" onclick="sumaCantidad('{{ticket.numero}}','{{value.codigo}}')"><i class="fa fa-plus"></i></button>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      ${{value.precio}}
+                    </span>
+                  </td>
+                  <td>
+                      <button type="button" class="btn btn-danger" onclick="eliminarProducto('{{ticket.numero}}','{{value.codigo}}')"><i class="fa fa-trash"></i></button>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <center>
+            {% if ticket.detalle.items %}
+            <div>
+              <span class="badge-md bg-indigo rounded bg-primary text-white"><strong>Total: ${{total}}</strong></span>
+            </div>
+            {% endif %}
+            <br>
+            {% if ticket.detalle %}
+            <button class="btn btn-default" onclick="vaciarVenta('{{ticket.numero}}')"><i class="fa fa-broom"></i> Vaciar Ticket</button>
+            <button class="btn btn-success" onclick="completarVenta('{{ticket.numero}}')"><i class="fa fa-check-circle"></i> Completar Venta</button>
+            {% endif %}
+          </center>
+        </div>
+      </div>
+      <br>
+    
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+<script type="text/javascript" src="/static/assets/js/plugins/datatable/datatables.js"></script>
+
+<script>
+  $(document).ready( function () {
+    $('#table_id').DataTable({
+      "columnDefs": [
+      { "orderable": false, "targets": 6 },
+      { "searchable": false , "targets": [2,3,4,5]}
+      ],
+    });
+  });
+</script>
+
+<script>
+  function eliminarProducto(ticket, id) {
+        window.location.href = "/eliminar_detalle/"+ticket+"/"+id+"/"
+      }
+</script>
+
+<script>
+  function sumaCantidad(ticket, id) {
+        window.location.href = "/suma_cantidad/"+ticket+"/"+id+"/"
+      }
+</script>
+
+<script>
+  function vaciarVenta(id) {
+    Swal.fire({
+      'title':'¿Desea vaciar el Ticket?',
+      'text':'Esta operación no se puede deshacer.',
+      'icon':'question',
+      'showCancelButton':true,
+      'cancelButtonText':'Cancelar',
+      'confirmButtonText':'Vaciar Ticket',
+      'confirmButtonColor':'blue',
+      'reverseButtons':true
+    })
+    .then(function(result) {
+      if(result.isConfirmed) {
+        window.location.href = "/vaciar_venta/"+id+"/"
+      }
+    })
+  }
+</script>
+
+<script>
+  function completarVenta(id) {
+    Swal.fire({
+      'title':'¿Desea completar esta Venta?',
+      'text':'Esta operación no se puede deshacer.',
+      'icon':'question',
+      'showCancelButton':true,
+      'cancelButtonText':'Cancelar',
+      'confirmButtonText':'Completar Venta',
+      'confirmButtonColor':'#52BE80',
+      'reverseButtons':true
+    })
+    .then(function(result) {
+      if(result.isConfirmed) {
+        window.location.href = "/completar_venta/"+id+"/";
+      }
+    })
+  }
+</script>
+
+<script>
+  var form = document.querySelector('form');
+  var codigo = document.getElementById("codePlacer");
+
+  $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 113 ) { //ESC key code
+      //form.reset();
+      codigo.value = '';
+      codigo.focus();     
+      //aramaAlani.scrollIntoView();
+      //document.forms[ 'id_arama' ].elements[ _element ].focus();
+      //document.getElementById("id_search").focus();
+    }
+  });
+</script>
+{% endblock javascripts %}

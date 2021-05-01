@@ -1,0 +1,116 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Empleados {% endblock title %}
+
+{% block content %}
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-6 pt-5 pt-md-8">
+    </div>
+
+    <div class="container-fluid mt--7">
+
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-6">
+                  <h3 class="mb-0"><i class="ni ni-badge"></i> Empleados</h3>
+                </div>
+                <div class="col-6 text-right">
+                  <a href="{% url 'crear_empleado' %}">
+                    <button type="button" class="btn btn-success"><i class="fas fa-plus"></i> Nuevo Empleado</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush" id="table_id">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">RUT</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for emple in empleados %}
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">{{emple.id}}</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td>
+                      <span class="mb-0 text-sm">{{emple.nombre.upper}} {{emple.apellido.upper}}</span>
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        {{emple.usuario}}
+                      </span>
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        {{emple.rut}}
+                      </span>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <a class="btn btn-default" href="{% url 'editar_empleado' emple.id %}"><i class="fa fa-edit"></i> Modificar</a>
+                        <button type="button" class="btn btn-danger" onclick="eliminarEmpleado('{{emple.id}}')"><i class="fa fa-trash"></i> Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+<script type="text/javascript" src="/static/assets/js/plugins/datatable/datatables.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#table_id').DataTable({
+      "columnDefs": [
+      { "orderable": false, "targets": 4 }
+      ]
+    });
+  } );
+</script>
+
+<script>
+  function eliminarEmpleado(id) {
+    Swal.fire({
+      'title':'¿Desea Eliminar el Empleado?',
+      'text':'Esta operación no se puede deshacer.',
+      'icon':'question',
+      'showCancelButton':true,
+      'cancelButtonText':'Cancelar',
+      'confirmButtonText':'Eliminar',
+      'confirmButtonColor':'red',
+      'reverseButtons':true
+    })
+    .then(function(result) {
+      if(result.isConfirmed) {
+        window.location.href = "/eliminar_empleado/"+id+"/"
+      }
+    })
+  }
+</script>
+{% endblock javascripts %}

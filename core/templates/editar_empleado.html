@@ -1,0 +1,157 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-6 pt-5 pt-md-8">
+    </div>
+
+    <div class="container-fluid mt--7">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-edit"></i><strong> Editar Empleado</strong>
+        </div>
+        <div class="card-body">
+        <form method="POST" action="">
+          {% csrf_token %}
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nombre: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-font"></i></span>
+                </div>
+                {{form.nombre}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Apellido:</label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-font"></i></span>
+                </div>
+                {{form.apellido}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Correo:</label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="far fa-envelope-open"></i></span>
+                </div>
+                {{form.correo}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Teléfono:</label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                </div>
+                {{form.telefono}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>RUT: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              {% if form.rut.errors %}
+              <div class="input-group mb-4 error">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                {{form.rut}}
+              </div>
+              <div class="errorText">
+                {{form.rut.errors.as_text}}
+              </div>
+            </div>
+            {% else %}
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                {{form.rut}}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Dirección:</label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                </div>
+                {{form.direccion}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Usuario: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              {% if form.usuario.errors %}
+              <div class="input-group mb-4 error">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                {{form.usuario}}
+              </div>
+              <div class="errorText">
+                {{form.usuario.errors.as_text}}
+              </div>
+            </div>
+            {% else %}
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                </div>
+                {{form.usuario}}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Clave: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                {{form.clave}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar Cambios</button>
+        <a class="btn btn-danger" href="{% url 'empleados' %}"><font color="white"><i class="fa fa-times-circle"></i> Cancelar</font></a>
+      </form>
+      </div>
+    </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}

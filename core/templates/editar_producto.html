@@ -1,0 +1,143 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Editar Producto {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-6 pt-5 pt-md-8">
+    </div>
+
+    <div class="container-fluid mt--7">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-edit"></i><strong> Editar Producto</strong> ( {{prod.nombre.upper}} )
+        </div>
+        <div class="card-body">
+        <form method="POST" action="">
+          {% csrf_token %}
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label class="form-control-label">Nombre: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-font"></i></span>
+                </div>
+                <!-- <input class="form-control" placeholder="Nombre*" type="text" name="nombre" autofocus required value="{{prod.nombre}}"> -->
+                {{form.nombre}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-control-label">Mínimo: <strong><font size="1rem">(obligatorio)</font></strong></label>
+            {% if form.codigo.errors %}
+            <div class="form-group">
+              <div class="input-group mb-4 error">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+                </div>
+                {{form.codigo}}
+              </div>
+              <div class="errorText">
+                {{form.codigo.errors.as_text}}
+              </div>
+              {% else %}
+            <div class="form-group">
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+                </div>
+                {{form.codigo}}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label">Categoría: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-database"></i></span>
+                </div>
+                <!-- <select name="categoria" class="form-control" required>
+                  {% for cat in categorias %}
+                      <option value="{{cat.id}}" {% if prod.categoria == cat %}selected{% endif %}>{{cat.nombre}}</option>
+                  {% endfor %}
+              </select> -->
+                {{form.categoria}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label">Precio Costo: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <!-- <input class="form-control" placeholder="Precio Costo*" type="number" name="precio_costo" required value="{{prod.precio_costo}}"> -->
+                {{form.precio_costo}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label">Precio Venta: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <!-- <input class="form-control" placeholder="Precio Venta*" type="number" name="precio_venta" required value="{{prod.precio_venta}}"> -->
+                {{form.precio_venta}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label">Inventario: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-cubes"></i></span>
+                </div>
+                <!-- <input class="form-control" placeholder="Inventario*" type="number" name="inventario" required value="{{prod.inventario}}"> -->
+                {{form.inventario}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label">Mínimo: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-exclamation-circle"></i></span>
+                </div>
+                <!-- <input class="form-control" placeholder="Mínimo*" type="number" name="minimo" required value="{{prod.minimo}}"> -->
+                {{form.minimo}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar Cambios</button>
+        <a class="btn btn-danger" href="{% url 'productos' %}"><font color="white"><i class="fa fa-times-circle"></i> Cancelar</font></a>
+      </form>
+      </div>
+    </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}

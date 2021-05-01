@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Title</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+    </head>
+    <body>
+        <div class='header'>
+            <p class='title'>Ticket #{{ ticket_id }}</p>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <p style="text-align: left;"><b>Fecha:</b> {{ticket.fecha.day}}/{{ticket.fecha.month}}/{{ticket.fecha.year}}</p>
+                </td>
+                <td>
+                    <p style="text-align: right;"><b>Hora:</b> {{ticket.fecha.time}}</p>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <div class='details'>
+                <hr class='hrItem' />
+                <table slot="1">
+                    <thead>
+                    <tr>
+                        <th align="left" colspan="5">Nombre</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for prod in detalle.values %}
+                            <tr>
+                                <td colspan="5">{{prod.nombre}}</td>
+                                <td align="center">{{prod.cantidad}}</td>
+                                <td align="center">${{prod.precio}}</td>
+                                <td align="center">${{prod.total}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <hr>
+                <p style="text-align: right;"><b>Total: ${{ total }}</b></p>
+            </div>
+        </div>
+    </body>
+</html>

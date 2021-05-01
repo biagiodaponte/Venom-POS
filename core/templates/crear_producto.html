@@ -1,0 +1,135 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-6 pt-5 pt-md-8">
+    </div>
+
+    <div class="container-fluid mt--7">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-plus-circle"></i><strong> Crear Nuevo Producto</strong>
+        </div>
+        <div class="card-body">
+        <form method="POST" action="">
+          {% csrf_token %}
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label>Nombre: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-font"></i></span>
+                </div>
+                {{form.nombre}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Código: <strong><font size="1rem">(obligatorio)</font></strong></label>
+            {% if form.codigo.errors %}
+              <div class="input-group mb-4 error has-danger">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+                </div>
+                {{form.codigo}}
+              </div>
+              <div class="errorText">
+                {{form.codigo.errors.as_text}}
+              </div>
+            </div>
+              {% else %}
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+                </div>
+                {{form.codigo}}
+              </div>
+            </div>
+              {% endif %}
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Categoría: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-database"></i></span>
+                </div>
+                {{form.categoria}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Precio Costo: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                {{form.precio_costo}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Precio Venta: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                {{form.precio_venta}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Inventario: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-cubes"></i></span>
+                </div>
+                {{form.inventario}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Mínimo: <strong><font size="1rem">(obligatorio)</font></strong></label>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-exclamation-circle"></i></span>
+                </div>
+                {{form.minimo}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Crear Producto</button>
+        <a class="btn btn-danger" href="{% url 'productos' %}"><font color="white"><i class="fa fa-times-circle"></i> Cancelar</font></a>
+      </form>
+      </div>
+    </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
+
+</html>
