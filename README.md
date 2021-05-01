@@ -48,7 +48,7 @@ $ # o en su defecto con puerto predeterminado.
 
    ### Empleados
    - Listado de Empleados
-   - Crear Empleado (Validaciones: Tanto "Usuario" y "R.U.T" serán únicos por cada empleado)
+   - Crear Empleado (Validaciones: Tanto "Usuario" como "R.U.T" serán únicos por cada empleado)
    - Modificar Empleado
    - Eliminar Empleado
 
