@@ -27,13 +27,13 @@ $ # o en su defecto con puerto predeterminado.
 <br />
 
 ## Credenciales de VenomPOS
-Para acceder a VenomPOS en forma de **Administrador**:
-- Usuario: **admin**
-- Clave: **admin**
-
-Para acceder a VenomPOS en forma de **Administrador**:
-- Usuario: **vendedor**
-- Clave: **vendedor**
+>Para acceder a VenomPOS en forma de **Administrador**:
+>- Usuario: **admin**
+>- Clave: **admin**
+>
+>Para acceder a VenomPOS en forma de **Administrador**:
+>- Usuario: **vendedor**
+>- Clave: **vendedor**
 
 <br />
 
