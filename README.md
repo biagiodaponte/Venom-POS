@@ -87,7 +87,8 @@ $ # o en su defecto con puerto predeterminado.
    ### Ventas
    - Debido al bajo conocimiento de javascript, no se podrá implementar de momento el apartado de "Cliente Asociado a esta Venta". Ya que se logrará mediante una busqueda en tiempo real por nombre, apellido o R.U.T (DNI) en un respectivo Card.
 
-
+<br/>
+<br/>
 ---
 
 - Utilizando **Argon Dashboard** (Free Version) de **Creative-Tim** y **AppSeed**
