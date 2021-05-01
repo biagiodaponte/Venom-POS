@@ -48,13 +48,13 @@ $ # o en su defecto con puerto predeterminado.
 
    ### Empleados
    - Listado de Empleados
-   - Crear Empleado
+   - Crear Empleado (Validaciones: Tanto "Usuario" y "R.U.T" serán únicos por cada empleado)
    - Modificar Empleado
    - Eliminar Empleado
 
    ### Clientes
-   - Listado de Cliente
-   - Crear Cliente
+   - Listado de Clientes
+   - Crear Cliente (Validaciones: En caso de ingresar R.U.T, no podrá repetirse en ningún otro cliente.)
    - Modificar Cliente
    - Eliminar Cliente
 
