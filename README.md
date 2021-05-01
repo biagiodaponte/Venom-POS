@@ -2,18 +2,6 @@
 
  ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 <br />
-
-> Free product - **Django Dashboard** starter project - Features:
-
-- UI Kit: **Argon Dashboard** (Free Version) provided by **[Creative-Tim](https://www.creative-tim.com/)**
-- Django Codebase - provided by **[AppSeed](https://appseed.us/)**
-- UI-Ready app, SQLite Database, Django Native ORM
-- Modular design, clean code-base
-- Session-Based Authentication, Forms validation
-- Deployment scripts: Docker, Gunicorn / Nginx
-
-<br />
-
 ## Antes de empezar
 
 > Descomprimir los archivos o clonar el repositorio. Luego de obtener el código, abrir un terminal y navegar hasta la raíz del proyecto.
@@ -34,12 +22,18 @@ $ # Access the web app in browser: http://127.0.0.1:8000/
 $ # o en su defecto con puerto predeterminado.
 ```
 
-> Note: To use the app, please access the registration page and create a new user. After authentication, the app will unlock the private pages.
+> Nota: Para utilizar la app existen 2 tipos de login (administrador y vendedor) y se podrán acceder con las credenciales indicadas.
 
 <br />
 
-## Documentation
-The documentation for the **Argon Dashboard Django** is hosted at our [website](https://demos.creative-tim.com/argon-dashboard-django/docs/getting-started/getting-started-django.html).
+## Credenciales de VenomPOS
+Para acceder a VenomPOS en forma de **Administrador**:
+- Usuario: **admin**
+- Clave: **admin**
+
+Para acceder a VenomPOS en forma de **Administrador**:
+- Usuario: **vendedor**
+- Clave: **vendedor**
 
 <br />
 
@@ -105,3 +99,13 @@ If you have questions or need help integrating the product please [contact us](h
 
 ---
 [Argon Dashboard - Django Template](https://www.creative-tim.com/product/argon-dashboard-django) - Provided by [Creative Tim](https://www.creative-tim.com/) and [AppSeed](https://appseed.us)
+<br />
+> Free product - **Django Dashboard** starter project - Features:
+
+- UI Kit: **Argon Dashboard** (Free Version) por **[Creative-Tim]**
+- UI-Ready app, SQLite Database, Django Native ORM
+- Modular design, clean code-base
+- Session-Based Authentication, Forms validation
+- Deployment scripts: Docker, Gunicorn / Nginx
+
+<br />
