@@ -40,7 +40,6 @@ $ # o en su defecto con puerto predeterminado.
 
 ## Módulos de VenomPOS
    ### Productos
-   ---
    - Listado de Productos
    - Crear Producto
    - Modificar Producto
@@ -49,7 +48,6 @@ $ # o en su defecto con puerto predeterminado.
 <br />
 
    ### Empleados
-   ---
    - Listado de Empleados
    - Crear Empleado
    - Modificar Empleado
@@ -57,7 +55,6 @@ $ # o en su defecto con puerto predeterminado.
 <br />
 
    ### Clientes
-   ---
    - Listado de Cliente
    - Crear Cliente
    - Modificar Cliente
@@ -65,7 +62,6 @@ $ # o en su defecto con puerto predeterminado.
 <br />
 
    ### Ventas
-   ---
    - Se podrán agregar artículos a la venta actual introduciendo el código del artículo. (Si se desea añadir x cantidad del mismo artículo se podrá utilizar la nomenclatura de "cantidad\*codigo" (*ej. 3\*1515*).
    - Se podrá hacer un FOCUS al campo de introducción del código del artículo, presionando la tecla F2.
    - Se podrá incrementar la cantidad en 1 de cada producto que se encuentre en la venta actual, presionando el botón "*+*" al lado de su cantidad.
@@ -76,7 +72,6 @@ $ # o en su defecto con puerto predeterminado.
 <br />
 
    ### Reportes
-   ---
    - **Reporte Stock Crítico:** Exporta a una planilla Excel, una tabla con todos los productos con su inventario actual bajo su mínimo esperado en tienda.
    - **Reporte Total de Ventas:** Exporta a una planilla Excel, una tabla con el reporte total de las ventas, que incluye por cada ticket emitido, su número, fecha y monto total. (como desarrollo posterior al Máster, se busca implementar filtrar estos resultados mediante un intervalo de fechas.)
 <br />
@@ -84,22 +79,18 @@ $ # o en su defecto con puerto predeterminado.
 ## Límites del Proyecto
 
    ### Inicio
-   ---
    - Las gráficas actuales no representan información real de las ventas de la aplicación, es sólo ilustrativo (se desarrollarán éstas al adquirir conocimientos en más tecnologías que Python).
    <br/>
 
    ### Empleados
-   ---
    - Una de las metas del proyecto, era poder tomar esta clase Empleado y sus datos, para procesar el log-in a la aplicación. Por falta de conocimiento en las modificaciones de las clases UserLogin de Django, de momento solo se podrá ingresar al sistema con los Usuarios predefinidos de Django como tal.
    <br/>
 
    ### Clientes 
-   ---
    - El atributo "saldo" de esta clase, de momento no será utilizadas en la aplicación. Esto debido a que no manejará de momento los métodos de pago en la venta. Una vez se implemente el método de pago "A Crédito" y el método de "Abono a Cliente", es cuando se manejará el saldo del cliente.
    <br/>
 
    ### Ventas
-   ---
    - Debido al bajo conocimiento de javascript, no se podrá implementar de momento el apartado de "Cliente Asociado a esta Venta". Ya que se logrará mediante una busqueda en tiempo real por nombre, apellido o R.U.T (DNI) en un respectivo Card.
    <br/>
 
