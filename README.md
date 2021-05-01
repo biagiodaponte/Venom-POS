@@ -41,34 +41,37 @@ $ # o en su defecto con puerto predeterminado.
 ## Módulos de VenomPOS
    ### Productos
    ---
-   - #### Listado de Productos
-   - #### Crear Producto
-   - #### Modificar Producto
-   - #### Eliminar Producto
-   - #### En el botón de más opciones en la esquina superior derecha, se podrán generar: Listado de la totalidad de productos ("Exportar a Excel") y un reporte con los productos con su stock en estado "crítico" (cantidad actual por debajo del mínimo) en "Reporte Stock Crítico".
+   - Listado de Productos
+   - Crear Producto
+   - Modificar Producto
+   - Eliminar Producto
+   - En el botón de más opciones en la esquina superior derecha, se podrán generar: Listado de la totalidad de productos ("Exportar a Excel") y un reporte con los productos con su stock en estado "crítico" (cantidad actual por debajo del mínimo) en "Reporte Stock Crítico".
 <br />
+
    ### Empleados
    ---
-   - #### Listado de Empleados
-   - #### Crear Empleado
-   - #### Modificar Empleado
-   - #### Eliminar Empleado
+   - Listado de Empleados
+   - Crear Empleado
+   - Modificar Empleado
+   - Eliminar Empleado
+<br />
 
    ### Clientes
    ---
-   - #### Listado de Cliente
-   - #### Crear Cliente
-   - #### Modificar Cliente
-   - #### Eliminar Cliente
+   - Listado de Cliente
+   - Crear Cliente
+   - Modificar Cliente
+   - Eliminar Cliente
+<br />
 
    ### Ventas
    ---
-   - ### Se podrán agregar artículos a la venta actual introduciendo el código del artículo. (Si se desea añadir x cantidad del mismo artículo se podrá utilizar la nomenclatura de "cantidad*codigo" (ej. 3*1515).
-   - ### Se podrá incrementar la cantidad en 1 de cada producto que se encuentre en la venta actual, presionando el botón "+" al lado de su cantidad.
-   - ### Está permitido eliminar artículos no deseados en la venta presionando el botón de eliminar en la fila del producto en cuestión.
-   - ### Si se desea vaciar la venta por completo, se podrá realizar en el botón de "Limpiar Ticket" y confirmar su acción (deben existir productos en la venta actual).
-   - ### Se incluye, por motivos estrictamente necesarios, el campo de "Total" en la parte inferior de la pantalla (deben existir productos en la venta actual).
-   - ### Para confirmar una venta, sólo se debe clickear el botón de "Completar Venta" y luego confirmar. La aplicación, automáticamente lo devolverá a la pantalla de la siguiente venta. Si desea imprimir la venta previamente aceptada, puedes descargar el pdf en el apartado superior derecho "Descargar Última Venta".
+   - Se podrán agregar artículos a la venta actual introduciendo el código del artículo. (Si se desea añadir x cantidad del mismo artículo se podrá utilizar la nomenclatura de "cantidad\*codigo" (ej. 3\*1515).
+   - Se podrá incrementar la cantidad en 1 de cada producto que se encuentre en la venta actual, presionando el botón "+" al lado de su cantidad.
+   - Está permitido eliminar artículos no deseados en la venta presionando el botón de eliminar en la fila del producto en cuestión.
+   - Si se desea vaciar la venta por completo, se podrá realizar en el botón de "Limpiar Ticket" y confirmar su acción (deben existir productos en la venta actual).
+   - Se incluye, por motivos estrictamente necesarios, el campo de "Total" en la parte inferior de la pantalla (deben existir productos en la venta actual).
+   -  Para confirmar una venta, sólo se debe clickear el botón de "Completar Venta" y luego confirmar. La aplicación, automáticamente lo devolverá a la pantalla de la siguiente venta. Si desea imprimir la venta previamente aceptada, puedes descargar el pdf en el apartado superior derecho "Descargar Última Venta".
 
 
 
