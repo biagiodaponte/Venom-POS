@@ -72,6 +72,7 @@ $ # o en su defecto con puerto predeterminado.
    - **Reporte Total de Ventas:** Exporta a una planilla Excel, una tabla con el reporte total de las ventas, que incluye por cada ticket emitido, su número, fecha y monto total. (como desarrollo posterior al Máster, se busca implementar filtrar estos resultados mediante un intervalo de fechas.)
 <br/>
 <br/>
+
 ## Límites del Proyecto
 
    ### Inicio
