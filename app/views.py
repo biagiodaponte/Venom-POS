@@ -2,7 +2,6 @@ from django.views.generic import ListView
 from datetime import datetime
 import pandas as pd
 from pandas import ExcelWriter
-from UliPlot.XLSX import auto_adjust_xlsx_column_width
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.template import loader

@@ -4,11 +4,14 @@ django==3.1.7
 pycodestyle
 pytz
 sqlparse
-Unipath
+unipath
 dj-database-url
 python-decouple
 gunicorn
 whitenoise
-io
-UliPlot
 pandas
+python-decouple
+dj_database_url
+xhtml2pdf
+openpyxl
+xlsxwriter
